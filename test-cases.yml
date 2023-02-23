@@ -125,7 +125,7 @@
   requirement: |
     Успешное добавление товара в корзину из каталога на главной странице
   prerequisites: |
-  В браузере открыта страница https://hexlet-products-store.vercel.app/
+    В браузере открыта страница https://hexlet-products-store.vercel.app/
   test-data: |
     Товар = Infinix INBOOK
   steps:
