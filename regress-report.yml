@@ -1,0 +1,115 @@
+---
+test-cases:
+  - summary: |
+      Проверка работы поиска по ключевому слову
+    status: pass
+
+  - summary: |
+      Проверка работы поиска товара по несуществующему среди названий ключевому слову
+    status: fail
+
+  - summary: |
+      Проверка работы фильтрации товаров по категории
+    status: pass
+
+  - summary: |
+      Проверка работы фильтрации товаров по 2 параметрам
+    status: pass
+
+  - summary: |
+      Проверка фильтрации товаров по цене
+    status: pass
+
+  - summary: |
+      Проверка фильтрации товаров по цвету
+    status: fail
+
+  - summary: |
+      Проверка фильтрации товаров по размеру
+    status: fail
+
+  - summary: |
+      Просмотр каталога товаров
+    status: pass
+
+  - summary: |
+      Просмотр страницы товара
+    status: pass
+
+  - summary: |
+      Добавление товара в корзину из каталога
+    status: pass
+
+  - summary: |
+      Добавление товара в корзину со страницы товара
+    status: pass
+
+  - summary: |
+      Удаление товара из корзины
+    status: pass
+
+  - summary: |
+      Корзина хранится в сессии браузера
+    status: pass
+
+  - summary: |
+      При заказе происходит перенаправление на страницу оплаты
+    status: fail
+
+  - summary: |
+      Есть мобильная версия сайта
+    status: pass
+
+bugreports:
+- summary: |
+    Не происходит перенаправление на страницу оплаты при оформелнии заказа
+  environment: |
+    Google Chrome 109.0.5414.119 (Официальная сборка), (arm64)
+    macOS Ventura 13.1
+  steps-to-reproduce: |
+    1. Открыть сайт https://hexlet-products-store.vercel.app/
+    2. Добавить любой товар в корзину
+    3. Перейти в корзину и нажать на кнопку "оформить заказ"/"Checkout"
+  expected-result: |
+    Произойдет перенаправление на страницу с оплатой
+  actual-result: |
+    Всплывает окно с информацией о заказе. Перенаправление на страницу оплаты не произошло.
+
+- summary: |
+    Невозможно отфильтровать товары по цвету
+  environment: |
+    Google Chrome 109.0.5414.119 (Официальная сборка), (arm64)
+    macOS Ventura 13.1
+  steps-to-reproduce: |
+    1. Открыть сайт https://hexlet-products-store.vercel.app/
+    2. Выставить фильтр по цвету
+  expected-result: |
+    Товары отфильтруются по выбранному цвету
+  actual-result: |
+    Нет опции фильтрации по цвету
+
+- summary: |
+    Невозможно отфильтровать товары по размеру
+  environment: |
+    Google Chrome 109.0.5414.119 (Официальная сборка), (arm64)
+    macOS Ventura 13.1
+  steps-to-reproduce: |
+    1. Открыть сайт https://hexlet-products-store.vercel.app/
+    2. Выставить фильтр по размеру
+  expected-result: |
+    Товары отфильтруются по выбранному размеру
+  actual-result: |
+    Нет опции фильтрации по размеру
+
+- summary: |
+    Фильтрация по несуществующему ключевому слову не работет
+  environment: |
+    Google Chrome 109.0.5414.119 (Официальная сборка), (arm64)
+    macOS Ventura 13.1
+  steps-to-reproduce: |
+    1. Открыть сайт https://hexlet-products-store.vercel.app/
+    2. Выставить фильтр по несуществующему среди названий товаров ключевому слову
+  expected-result: |
+    Выводится сообщение "Ничего не найдено!"
+  actual-result: |
+    Мы видим все товары каталога
