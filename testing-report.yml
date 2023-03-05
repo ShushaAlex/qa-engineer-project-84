@@ -58,3 +58,51 @@
 - summary: |
     Есть мобильная версия сайта
   status: fail
+
+- summary: |
+    Добавление нескольких товаров в корзину из каталога
+  status: pass
+
+- summary: |
+    Добавление нескольких товаров из каталога в корзину с указанием количества
+  status: fail
+
+- summary: |
+    Навигация по страницам каталога товаров вперед
+  status: pass
+
+- summary: |
+    Навигация по страницам каталога товаров назад
+  status: pass
+
+- summary: |
+    Навигация по страницам каталога товаров
+  status: fail
+
+- summary: |
+    Проверка фильтрации товаров по цене с учетом скидки
+  status: fail
+
+- summary: |
+    Проверка локализации
+  status: fail
+
+- summary: |
+    Проверка кроссбраузерности Google Chrome
+  status: pass
+
+- summary: |
+    Проверка кроссбраузерности Safari
+  status: pass
+
+- summary: |
+    Проверка кроссбраузерности Firefox
+  status: pass
+
+- summary: |
+    Проверка кроссбраузерности Opera
+  status: pass
+
+- summary: |
+    Проверка кроссбраузерности Edge
+  status: pass

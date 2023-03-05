@@ -126,6 +126,7 @@
     Успешное добавление товара в корзину из каталога на главной странице
   prerequisites: |
     В браузере открыта страница https://hexlet-products-store.vercel.app/
+    Корзина пуста
   test-data: |
     Товар = Infinix INBOOK
   steps:
@@ -135,11 +136,44 @@
     В корзине отображается выбранный товар в количестве 1 шт.
 
 - summary: |
+    Добавление нескольких товаров в корзину из каталога
+  requirement: |
+    Успешное добавление нескольких товаров в корзину из каталога на главной странице
+  prerequisites: |
+    В браузере открыта страница https://hexlet-products-store.vercel.app/
+    Корзина пуста
+  test-data: |
+    Товар = Infinix INBOOK
+  steps:
+    - Добавить товар в корзину 2 раза
+    - Перейти в корзину
+  expected-result: |
+    В корзине отображается выбранный товар в количестве 2 шт.
+
+- summary: |
+    Добавление нескольких товаров из каталога в корзину с указанием количества
+  requirement: |
+    Успешное добавление нескольких товаров в корзину с указанием количества из каталога на главной странице
+  prerequisites: |
+    В браузере открыта страница https://hexlet-products-store.vercel.app/
+    Корзина пуста
+  test-data: |
+    Товар = OPPOF19
+    Количество = 5
+  steps:
+    - Добавить товар
+    - Во всплывающем окне указать цифрой количество
+    - Перейти в корзину
+  expected-result: |
+    В корзине отображается выбранный товар в количестве 5 шт.
+
+- summary: |
     Добавление товара в корзину со страницы товара
   requirement: |
     Успешное добавление товара в корзину со страницы товара
   prerequisites: |
     В браузере открыта страница https://hexlet-products-store.vercel.app/
+    Корзина пуста
   test-data: |
     Товар = Infinix INBOOK
   steps:
@@ -204,3 +238,160 @@
     - На мобильном телефоне перейти по ссылке https://hexlet-products-store.vercel.app/
   expected-result: |
     Загрузилась страница для мобильных устройств
+
+- summary: |
+    Навигация по страницам каталога товаров вперед
+  requirement: |
+    Можно переходить на следующую страницу каталога
+  prerequisites: |
+    В браузере открыта страница https://hexlet-products-store.vercel.app/
+  test-data: |
+    empty
+  steps:
+    - Нажать на конопку Next/Следующая
+  expected-result: |
+    Откроется следующая страница катаолга товаров
+
+- summary: |
+    Навигация по страницам каталога товаров назад
+  requirement: |
+    Можно переходить на предыдущую страницу каталога
+  prerequisites: |
+    В браузере открыта страница https://hexlet-products-store.vercel.app/
+  test-data: |
+    empty
+  steps:
+    - Нажать на конопку Next/Следующая
+    - Нажать на конопку Previuos/Предыдущая
+  expected-result: |
+    После первого шага откроется следующая страница катаолга товаров, а после второго произойдет переход обратно на первую страницу
+
+- summary: |
+    Навигация по страницам каталога товаров 
+  requirement: |
+    Можно перейти на нужную страницу каталога товаров одним кликнув на номер страницы
+  prerequisites: |
+    В браузере открыта страница https://hexlet-products-store.vercel.app/
+  test-data: |
+    Страница = 3
+  steps:
+    - Нажать на номер страницы
+  expected-result: |
+    Откроется нужная страница каталога
+
+- summary: |
+    Переход к категории товаров по хэштегу на странице товара 
+  requirement: |
+    При нажатии на хэштег с названием категории на странице товара, происходит переход к этой категории товаров
+  prerequisites: |
+    В браузере открыта страница https://hexlet-products-store.vercel.app/
+  test-data: |
+    Товар = Huawei P30
+    Хэштег = #smartphones
+  steps:
+    - Перейти на страницу товара
+    - Нажать на хэштег
+  expected-result: |
+    Откроется каталог с отфилтрованными по категории товарами
+
+- summary: |
+    Проверка фильтрации товаров по цене с учетом скидки
+  requirement: |
+    При установке минимального и максимального значения цены отображаются товары, чья цена со скидкой попадает в этот ценовой диапазон
+  prerequisites: |
+    В браузере открыта страница https://hexlet-products-store.vercel.app/
+  test-data: |
+    Цена From = 100
+    Цена To = 300
+  steps:
+    - Выставляем цену From To
+  expected-result: |
+    В списке товаров отображаются только товары c ценой с учетом скидки в диапазоне From To
+
+- summary: |
+    Проверка локализации
+  requirement: |
+    При переключении языка на русский сайт полностью локализован
+  prerequisites: |
+    В браузере открыта страница https://hexlet-products-store.vercel.app/
+  test-data: |
+    empty
+  steps:
+    - Переключаем язык на русский
+  expected-result: |
+    Вся информация кроме назввания товаров указана на русском языке включая: категории товаров, кнопки навигации и описание товваров
+
+- summary: |
+    Проверка кроссбраузерности Google Chrome
+  requirement: |
+    Сайт корректно открывается в последней версии Google Chrome 
+  prerequisites: |
+    empty
+  test-data: |
+    Сайт = https://hexlet-products-store.vercel.app/
+    Google Chrome = Google Chrome Version 110
+  steps:
+    - Открываем сайт в Google Chrome
+    - Проверяем внешний вид страницы
+  expected-result: |
+    Страница сайта выглядит хорошо, текст не выходит за блоки
+
+- summary: |
+    Проверка кроссбраузерности Safari
+  requirement: |
+    Сайт корректно открывается в последней версии Safari
+  prerequisites: |
+    empty
+  test-data: |
+    Сайт = https://hexlet-products-store.vercel.app/
+    Safari = Safari Version 16
+  steps:
+    - Открываем сайт в Safari
+    - Проверяем внешний вид страницы
+  expected-result: |
+    Страница сайта выглядит хорошо, текст не выходит за блоки
+
+- summary: |
+    Проверка кроссбраузерности Firefox
+  requirement: |
+    Сайт корректно открывается в последней версии Firefox
+  prerequisites: |
+    empty
+  test-data: |
+    Сайт = https://hexlet-products-store.vercel.app/
+    Firefox = Firefox Version 110
+  steps:
+    - Открываем сайт в Firefox
+    - Проверяем внешний вид страницы
+  expected-result: |
+    Страница сайта выглядит хорошо, текст не выходит за блоки
+
+- summary: |
+    Проверка кроссбраузерности Opera
+  requirement: |
+    Сайт корректно открывается в последней версии Opera
+  prerequisites: |
+    empty
+  test-data: |
+    Сайт = https://hexlet-products-store.vercel.app/
+    Opera = Opera Version 96
+  steps:
+    - Открываем сайт в Opera
+    - Проверяем внешний вид страницы
+  expected-result: |
+    Страница сайта выглядит хорошо, текст не выходит за блоки
+
+- summary: |
+    Проверка кроссбраузерности Edge
+  requirement: |
+    Сайт корректно открывается в последней версии Edge
+  prerequisites: |
+    empty
+  test-data: |
+    Сайт = https://hexlet-products-store.vercel.app/
+    Edge = Edge Version 110
+  steps:
+    - Открываем сайт в Edge
+    - Проверяем внешний вид страницы
+  expected-result: |
+    Страница сайта выглядит хорошо, текст не выходит за блоки
