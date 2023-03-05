@@ -105,8 +105,8 @@ test-cases:
     status: pass
 
   - summary: |
-     Проверка кроссбраузерности Edge
-   status: pass
+      Проверка кроссбраузерности Edge
+    status: pass
 
 bugreports:
 - summary: |
