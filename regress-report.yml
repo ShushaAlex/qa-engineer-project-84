@@ -108,8 +108,12 @@ test-cases:
       Проверка кроссбраузерности Edge
     status: pass
 
+  - summary: |
+      Переход к категории товаров по хэштегу на странице товара
+    status: pass
+
 bugreports:
-- summary: |
+- summary: |  
     Фильтрация товаров по несуществующему ключевому слову
   environment: |
     Google Chrome 109.0.5414.119 (Официальная сборка), (arm64)
